@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +22,7 @@ public class Utente {
 	@Column(name = "password")
 	private String password;
 	@OneToMany(mappedBy = "utente")
-	private Set<Pizza> pizza;
+	private List<Pizza> pizza;
 
 	public int getId() {
 		return id;
@@ -48,11 +48,11 @@ public class Utente {
 		this.password = password;
 	}
 
-	public Set<Pizza> getPizza() {
+	public List<Pizza> getPizza() {
 		return pizza;
 	}
 
-	public void setPizza(Set<Pizza> pizza) {
+	public void setPizza(List<Pizza> pizza) {
 		this.pizza = pizza;
 	}
 }

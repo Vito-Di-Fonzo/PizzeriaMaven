@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,16 +17,16 @@ public class Impasto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_impasto")
-	private long id;
+	private int id;
 	@Column(name = "name")
 	private String name;
 	@OneToMany(mappedBy = "impasto")
-	private Set<Pizza> pizza;
+	private List<Pizza> pizza;
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -35,10 +35,10 @@ public class Impasto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Set<Pizza> getPizza() {
+	public List<Pizza> getPizza() {
 		return pizza;
 	}
-	public void setPizza(Set<Pizza> pizza) {
+	public void setPizza(List<Pizza> pizza) {
 		this.pizza = pizza;
 	}
 }

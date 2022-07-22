@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,14 +28,14 @@ public class Pizza {
 	@ManyToMany(targetEntity = Pizza.class, cascade = { CascadeType.ALL })
 	@JoinTable(name = "pizza_ingrediente", joinColumns = { @JoinColumn(name = "idpizza") }, inverseJoinColumns = {
 			@JoinColumn(name = "idingrediente") })
-	private Set<Ingredienti> listaIngredienti;
+	private List<Ingredienti> listaIngredienti;
 	@ManyToOne
 	@JoinColumn(name = "idutente", nullable = false)
 	private Utente utente;
 	public Pizza() {
 	}
 
-	public Pizza(int id, String name, Impasto impa, Set<Ingredienti> listIngred, Utente utn) {
+	public Pizza(int id, String name, Impasto impa, List<Ingredienti> listIngred, Utente utn) {
 		this.id = id;
 		this.nome = name;
 		this.impasto = impa;
@@ -67,11 +67,11 @@ public class Pizza {
 		this.utente = utente;
 	}
 
-	public Set<Ingredienti> getListaIngredienti() {
+	public List<Ingredienti> getListaIngredienti() {
 		return listaIngredienti;
 	}
 
-	public void setListaIngredienti(Set<Ingredienti> listaIngredienti) {
+	public void setListaIngredienti(List<Ingredienti> listaIngredienti) {
 		this.listaIngredienti = listaIngredienti;
 	}
 }
